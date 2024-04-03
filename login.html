@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return loginUser()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+    </form>
+    <div id="loginMessage" style="display: none; margin-top: 10px;">
+        <p>Login successful!</p>
+    </div>
+</div>
+
+<script>
+function loginUser() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Here, you would typically send the username and password to a server for validation
+    // For this example, we're just checking if the username is "admin" and password is "password"
+    if (username === "admin" && password === "password") {
+        // Display login successful message
+        document.getElementById("loginMessage").style.display = "block";
+        // Prevent form submission
+        return false;
+    } else {
+        // If login fails, you can show an error message or take other actions
+        alert("Invalid username or password");
+        // Prevent form submission
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
